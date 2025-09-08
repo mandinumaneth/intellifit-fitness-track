@@ -21,22 +21,35 @@ const ActivityList = () => {
     fetchActivities();
   }, []);
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} justifyContent="center">
       {activities.map((activity) => (
-        <Grid
-          key={activity.id}
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
+        <Grid key={activity.id}>
           <Card
-            sx={{ cursor: "pointer" }}
+            sx={{
+              cursor: "pointer",
+              boxShadow: 2,
+              borderRadius: 2,
+              p: 1,
+              minWidth: 140,
+              maxWidth: 180,
+              transition: "0.2s",
+              "&:hover": { boxShadow: 5, bgcolor: "#e3f2fd" },
+            }}
             onClick={() => navigate(`/activities/${activity.id}`)}
           >
-            <CardContent>
-              <Typography variant="h6">{activity.type}</Typography>
-              <Typography>Duration: {activity.duration}</Typography>
-              <Typography>Calories: {activity.caloriesBurned}</Typography>
+            <CardContent sx={{ p: 1 }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 600, color: "#1976d2", mb: 1 }}
+              >
+                {activity.type}
+              </Typography>
+              <Typography sx={{ mb: 0.5 }}>
+                Duration: <b>{activity.duration}</b> min
+              </Typography>
+              <Typography sx={{ mb: 0.5 }}>
+                Calories: <b>{activity.caloriesBurned}</b>
+              </Typography>
             </CardContent>
           </Card>
         </Grid>

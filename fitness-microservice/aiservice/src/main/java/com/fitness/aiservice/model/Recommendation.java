@@ -30,4 +30,7 @@ public class Recommendation {
 
     @CreatedDate
     private LocalDateTime createdAt;
+
+    private Integer duration; // in minutes
+    private Integer caloriesBurned;
 }

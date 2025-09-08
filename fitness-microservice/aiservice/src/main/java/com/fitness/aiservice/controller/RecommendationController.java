@@ -32,4 +32,21 @@ public class RecommendationController {
             return ResponseEntity.status(404).body("Recommendation not found for activity: " + activityId);
         }
     }
+
+    @GetMapping("/activity/{activityId}/full")
+    public ResponseEntity<?> getActivityWithRecommendation(@PathVariable String activityId) {
+        try {
+            Recommendation recommendation = recommendationService.getActivityRecommendations(activityId);
+            // Fetch activity details from activityservice
+            org.springframework.web.client.RestTemplate restTemplate = new org.springframework.web.client.RestTemplate();
+            String url = "http://localhost:8082/api/activities/" + activityId;
+            Object activity = restTemplate.getForObject(url, Object.class);
+            java.util.Map<String, Object> result = new java.util.HashMap<>();
+            result.put("activity", activity);
+            result.put("recommendation", recommendation);
+            return ResponseEntity.ok(result);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body("Recommendation or activity not found for activity: " + activityId);
+        }
+    }
 }
