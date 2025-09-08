@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/gateway/src/main/resources/application.yml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/gateway/src/main/resources/application.yml" />
+              <option name="originalContent" value="spring:&#10;  application:&#10;    name: gateway&#10;  cloud:&#10;    gateway:&#10;      routes:&#10;        - id: user-service&#10;          uri: lb://USER-SERVICE&#10;          predicates:&#10;            - Path=/api/users/**&#10;&#10;server:&#10;  port: 8080&#10;&#10;eureka:&#10;  client:&#10;    serviceUrl:&#10;      defaultZone: http://localhost:8761/eureka/&#10;  instance:&#10;    hostname: localhost&#10;    prefer-ip-address: false&#10;    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}" />
+              <option name="updatedContent" value="spring:&#10;  application:&#10;    name: gateway&#10;  cloud:&#10;    gateway:&#10;      server:&#10;        webflux:&#10;          routes:&#10;            - id: user-service&#10;              uri: lb://USER-SERVICE&#10;              predicates:&#10;                - Path=/api/users/**&#10;&#10;server:&#10;  port: 8080&#10;&#10;eureka:&#10;  client:&#10;    serviceUrl:&#10;      defaultZone: http://localhost:8761/eureka/&#10;  instance:&#10;    hostname: localhost&#10;    prefer-ip-address: false&#10;    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
