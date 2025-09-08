@@ -1,6 +1,15 @@
 # Intellifit Fitness Track
 
-Intellifit Fitness Track is a full-stack microservices-based fitness tracking platform. It helps users log activities, receive AI-powered recommendations, and manage their fitness journey with a modern web interface. The project is built with Spring Boot (Java) for the backend and React for the frontend, following best practices for scalability and maintainability.
+## Purpose
+This project is designed as a learning experience to understand and implement microservices architecture using Spring Boot. It covers:
+- Building and integrating multiple microservices
+- Service discovery, centralized configuration, and API gateway
+- Secure authentication and authorization with Keycloak OAuth2
+- Asynchronous messaging with RabbitMQ
+- AI integration for real-world use cases (Gemini API)
+
+
+By working on this project, you will gain hands-on experience with the core concepts and technologies used in scalable enterprise applications.
 
 ## Features
 - **User Management:** Register, login, and manage user profiles.
